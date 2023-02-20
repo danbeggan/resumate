@@ -11,8 +11,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        body: ['Poppins', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        primary: "#3D3DCD"
+      }
     },
   },
   plugins: [

@@ -9,11 +9,14 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
+    <main class="container mx-auto mt-28 px-5 flex font-body">
+      <div class="max-w-md w-full mx-auto">
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
