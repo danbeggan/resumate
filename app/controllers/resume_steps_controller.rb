@@ -7,8 +7,9 @@ class ResumeStepsController < Wicked::WizardController
   end
 
   def update
-    resume = Resume.last
-    render_wizard
+    @resume = Resume.last
+    @resume.assign_attributes resume_params
+    render_wizard @resume
   end
 
   private

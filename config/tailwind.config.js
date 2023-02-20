@@ -14,7 +14,9 @@ module.exports = {
         body: ['Poppins', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: "#3D3DCD"
+        primary: "#3D3DCD",
+        secondary: "#DEDEF7",
+        error: "#DC2626",
       }
     },
   },

@@ -12,38 +12,33 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= render Input::TextInputComponent.new(form: form, first_name: :first_name) %>
+  </div>
+
+
+  <div class="my-5">
+    <%= render Input::TextInputComponent.new(form: form, last_name: :last_name) %>
   </div>
 
   <div class="my-5">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= render Input::TextInputComponent.new(form: form, last_name: :email) %>   
   </div>
 
   <div class="my-5">
-    <%= form.label :email %>
-    <%= form.text_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= render Input::TextInputComponent.new(form: form, last_name: :address) %>
+  
   </div>
 
   <div class="my-5">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= render Input::TextInputComponent.new(form: form, last_name: :country) %>  
+</div>
+
+  <div class="my-5">
+    <%= render Input::TextInputComponent.new(form: form, last_name: :city) %>
   </div>
 
   <div class="my-5">
-    <%= form.label :country %>
-    <%= form.text_field :country, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :city %>
-    <%= form.text_field :city, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :job_title %>
-    <%= form.text_field :job_title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= render Input::TextInputComponent.new(form: form, last_name: :job_title) %>
   </div>
 
   <div class="inline">

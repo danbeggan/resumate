@@ -1,0 +1,53 @@
+<div class="">
+  <div class="text-2xl font-semibold text-primary text-center mb-10">
+    Step 1 - Personal Information
+  </div>
+  <%= form_with(model: @resume, url: wizard_path, method: :patch) do |form| %>
+    <% if @resume.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
+
+        <ul>
+          <% @resume.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="my-5">
+      <%= render Form::LabelComponent.new(form: form, name: :first_name, text: "First Name") %>
+      <%= render Form::TextInputComponent.new(form: form, name: :first_name) %>
+    </div>
+
+    <div class="my-5">
+      <%= render Form::LabelComponent.new(form: form, name: :last_name, text: "Last Name") %>
+      <%= render Form::TextInputComponent.new(form: form, name: :last_name) %>
+    </div>
+
+    <div class="my-5">
+      <%= render Form::LabelComponent.new(form: form, name: :email, text: "Email") %>
+      <%= render Form::TextInputComponent.new(form: form, name: :email) %>   
+    </div>
+ 
+    <div class="my-5">
+      <%= render Form::LabelComponent.new(form: form, name: :country, text: "Country") %>
+      <%= render Form::TextInputComponent.new(form: form, name: :country) %>  
+    </div>
+
+    <div class="my-5">
+      <%= render Form::LabelComponent.new(form: form, name: :city, text: "City") %>
+      <%= render Form::TextInputComponent.new(form: form, name: :city) %>
+    </div>
+
+    <div class="my-5">
+      <%= render Form::LabelComponent.new(form: form, name: :job_title, text: "Job Title") %>
+      <%= render Form::TextInputComponent.new(form: form, name: :job_title) %>
+    </div>
+
+    <div class="mt-10 flex justify-end">
+      <%= render Form::SubmitComponent.new(form: form, name: 'Next', icon: '<i class="fa-sharp fa-solid fa-arrow-right ml-2"></i>') %>
+    <div>
+
+  <% end %>
+</div>
