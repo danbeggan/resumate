@@ -1,0 +1,42 @@
+<div id="<%= dom_id resume %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">First name:</strong>
+    <%= resume.first_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Last name:</strong>
+    <%= resume.last_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Email:</strong>
+    <%= resume.email %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Phone:</strong>
+    <%= resume.phone %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Country:</strong>
+    <%= resume.country %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">City:</strong>
+    <%= resume.city %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Job title:</strong>
+    <%= resume.job_title %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this resume", resume, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this resume', edit_resume_path(resume), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
