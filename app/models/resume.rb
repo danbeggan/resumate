@@ -1,12 +1,12 @@
 class Resume < ApplicationRecord
   enum form_steps: {
-    personal_information: [:first_name :last_name :email :job_title]
+    personal_information: [:first_name, :last_name, :email, :job_title]
   }
   
   attr_accessor :form_step
 
   with_options if: -> { required_for_step?(:personal_information) } do
-    validates_presence_of :first_name :last_name :email :job_title
+    validates_presence_of :first_name, :last_name, :email, :job_title
   end
 
   def required_for_step?(step)
