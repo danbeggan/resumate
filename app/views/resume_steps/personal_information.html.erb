@@ -3,7 +3,7 @@
     Step 1 - Personal Information
   </div>
   <%= form_with(model: @resume, url: wizard_path, method: :patch) do |form| %>
-    <% if @resume.errors.any? %>
+    <% if @resume.errors.any? && false %>
       <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
         <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
 
@@ -43,6 +43,15 @@
     <div class="my-5">
       <%= render Form::LabelComponent.new(form: form, name: :job_title, text: "Job Title") %>
       <%= render Form::TextInputComponent.new(form: form, name: :job_title) %>
+    </div>
+
+    <div class="my-5 bg-secondary text-xs rounded p-5 text-primary">
+      <div class="font-semibold">Example Summary</div>
+    </div>
+
+    <div class="my-5">
+      <%= render Form::LabelComponent.new(form: form, name: :summary, text: "Summary") %>
+      <%= render Form::TextAreaComponent.new(form: form, name: :summary) %>
     </div>
 
     <div class="mt-10 flex justify-end">
