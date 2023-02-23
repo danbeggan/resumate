@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-  post "predictions/summary", to: "predictions#summary"
+  get "predictions/summary", to: "predictions#summary"
 end

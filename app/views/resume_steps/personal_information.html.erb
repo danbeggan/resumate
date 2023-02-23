@@ -45,8 +45,15 @@
       <%= render Form::TextInputComponent.new(form: form, name: :job_title) %>
     </div>
 
-    <div class="my-5 bg-secondary text-xs rounded p-5 text-primary">
-      <div class="font-semibold">Example Summary</div>
+    <div data-controller="predictions">
+      <button class="text-xs bg-primary rounded text-white py-2 px-4" type="button" data-action="click->predictions#generateSummary">
+        Generate Example Summary <i class="fa-regular fa-lightbulb" data-predictions-target="icon"></i>
+      </button>
+    </div>
+    
+    <div class="my-5 bg-secondary text-sm rounded p-5 text-primary hidden" id="example_summary_container">
+      <div class="font-semibold mb-3">Example Summary</div>
+      <div id="example_summary"></div>
     </div>
 
     <div class="my-5">

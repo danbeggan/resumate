@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="dialog"
+// Connects to data-controller="form--input-error"
 export default class extends Controller {
   static targets = ["input", "errorMessage"]
 

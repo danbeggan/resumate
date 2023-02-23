@@ -1,5 +1,5 @@
 class PredictionsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token #TODO: remove
 
   def summary
     client = OpenAI::Client.new
@@ -9,6 +9,6 @@ class PredictionsController < ApplicationController
           prompt: "Generate a one line professional summary for a cv of a #{params[:job_title]}",
           max_tokens: 50
       })
-    render json: { text: response["choices"][0]["text"] }
+    render json: { text: response.dig("choices", 0, "text") }
   end
 end

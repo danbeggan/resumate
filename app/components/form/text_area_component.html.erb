@@ -1,7 +1,7 @@
-<div data-controller="input-error">
-  <%= @form.text_area @name, class: "border-2 rounded w-full #{@form.object.errors.include?(@name) ? 'border-error' : 'border-gray-100'}", data: {action: "input-error#onInput", "input-error-target": "input"} %>
+<div data-controller="form--input-error">
+  <%= @form.text_area @name, class: "border-2 rounded w-full min-h-[8rem] #{@form.object.errors.include?(@name) ? 'border-error' : 'border-gray-100'}", data: {action: "form--input-error#onInput", "form--input-error-target": "input"} %>
   <% if @form.object.errors.include?(@name) %>
-    <div class="text-sm text-error mt-1" data-input-error-target="errorMessage">
+    <div class="text-sm text-error mt-1" data-form--input-error-target="errorMessage">
       <% @form.object.errors.full_messages_for(@name).each do |error_message| %>
         <%= error_message %>.
       <% end %>
