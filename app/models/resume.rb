@@ -1,6 +1,7 @@
 class Resume < ApplicationRecord
   enum form_steps: {
-    personal_information: [:first_name, :last_name, :email, :job_title, :country, :city, :summary]
+    personal_information: [:first_name, :last_name, :email, :job_title, :country, :city, :summary],
+    employment_history: []
   }
   
   attr_accessor :form_step

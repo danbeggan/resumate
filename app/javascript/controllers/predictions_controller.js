@@ -26,6 +26,7 @@ export default class extends Controller {
       this.iconTarget.classList.add('animate-spin')
     } else {
       this.iconTarget.classList.replace('fa-spinner', 'fa-lightbulb')
+      this.iconTarget.classList.add('fa-regular')
       this.iconTarget.classList.remove('animate-spin')
     }
   }
