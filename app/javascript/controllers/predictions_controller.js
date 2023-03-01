@@ -1,20 +1,21 @@
 import { Controller } from "@hotwired/stimulus"
+import { get } from '@rails/request.js'
 
 // Connects to data-controller="predictions"
 export default class extends Controller {
   static targets = ["icon"]
 
-  generateSummary() {
+  async generateSummary() {
     const jobTitleEl = document.getElementById('resume_job_title')
     if (jobTitleEl.value) {
       this.setLoading(true)
-      fetch(`/predictions/summary?job_title=${jobTitleEl.value}`)
-      .then(response => response.json())
-      .then((data) => {
-        this.setLoading(false)
-        document.getElementById('example_summary').innerHTML = data.text
+      const response = await get(`/predictions/summary?job_title=${jobTitleEl.value}`)
+      this.setLoading(false)
+      if (response.ok) {
+        const body = await response.json
+        document.getElementById('example_summary').innerHTML = body.text
         document.getElementById('example_summary_container').classList.remove('hidden')
-      });
+      }
     } else {
       jobTitleEl.focus()
     }

@@ -58,13 +58,12 @@ class ResumesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_resume
-      @resume = Resume.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def resume_params
-      params.require(:resume).permit(:first_name, :last_name, :email, :phone, :country, :city, :job_title)
-    end
+  def set_resume
+    @resume = Resume.find(params[:id])
+  end
+
+  def resume_params
+    params.require(:resume).permit(:first_name, :last_name, :email, :phone, :country, :city, :job_title)
+  end
 end

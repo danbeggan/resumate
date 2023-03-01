@@ -1,6 +1,4 @@
 class PredictionsController < ApplicationController
-  skip_before_action :verify_authenticity_token #TODO: remove
-
   def summary
     client = OpenAI::Client.new
     response = client.completions(

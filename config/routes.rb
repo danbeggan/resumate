@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :resumes, only: [:show]
+  resources :resumes, only: [:show] do
+    resources :employment_history
+  end
   resources :build_resume, only: [:show, :update], controller: 'resume_steps'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
