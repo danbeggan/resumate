@@ -1,0 +1,15 @@
+<main class="container">
+  
+    <div class="header">
+      <h1>Employments</h1>
+      <%= link_to "New employment",
+                  new_resume_employment_path,
+                  class: "btn btn--primary", 
+                  data: { turbo_frame: "employments" } %>
+    </div>
+  
+
+  <%= turbo_frame_tag "employments" do %>
+    <%= render @employments %>
+  <% end %>
+</main>

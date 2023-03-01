@@ -1,0 +1,12 @@
+<div class="w-full p-6 bg-secondary">
+  <%= link_to employment.name, resume_employment_path(employment) %>
+  <div class="employment__actions">
+    <%= button_to "Delete",
+                  resume_employment_path(employment),
+                  method: :delete,
+                  class: "btn btn--light" %>
+    <%= link_to "Edit",
+                edit_employment_path(employment),
+                class: "btn btn--light" %>
+  </div>
+</div>

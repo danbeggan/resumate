@@ -1,0 +1,12 @@
+<main class="container">
+
+  <%= link_to sanitize("&larr; Back to employments"), resume_employments_path %>
+
+  <div class="header">
+    <h1>New employment</h1>
+  </div>
+
+  <%= turbo_frame_tag "employments" do %>
+    <%= render "form", employment: @employment %>
+  <% end %>
+</main>

@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to employments"), resume_employments_path(@employment) %>
+
+  <div class="header">
+    <h1>Edit employment</h1>
+  </div>
+
+  <%= render "form", employment: @employment %>
+</main>
