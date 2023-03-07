@@ -1,4 +1,4 @@
-<%= form_with(model: @employment, url: resume_employments_path) do |form| %>
+<%= form_with(model: [@resume, @employment]) do |form| %>
   <% if @employment.errors.any? %>
       <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
         <h2><%= pluralize(@employment.errors.count, "error") %> prohibited this employment from being saved:</h2>
@@ -11,14 +11,15 @@
       </div>
     <% end %>
 
+    <%= form.hidden_field :resume_id, :value => @resume.id %>
+
     <div class="my-5">
       <%= render Form::LabelComponent.new(form: form, name: :job_title, text: "Job Title") %>
       <%= render Form::TextInputComponent.new(form: form, name: :job_title) %>
     </div>
 
-    <%#= form.submit "Search" %>
-
     <div class="mt-10 flex justify-end">
+      <%= link_to "Cancel", build_resume_path(:employment_history)%>
       <%= render Form::SubmitComponent.new(form: form, name: 'Save', icon: '<i class="fa-sharp fa-solid fa-arrow-right ml-2"></i>') %>
     <div>
 <% end %>

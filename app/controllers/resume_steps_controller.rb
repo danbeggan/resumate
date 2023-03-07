@@ -1,5 +1,5 @@
 class ResumeStepsController < Wicked::WizardController
-  steps :personal_information, :employment_history
+  steps :personal_information, :employment_history, :education
 
   def show
     @resume = Resume.last

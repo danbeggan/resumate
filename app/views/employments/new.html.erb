@@ -1,4 +1,4 @@
-<main class="container">
+<div>
 
   <%= link_to sanitize("&larr; Back to employments"), resume_employments_path %>
 
@@ -9,4 +9,4 @@
   <%= turbo_frame_tag "employments" do %>
     <%= render "form", employment: @employment %>
   <% end %>
-</main>
+</div>

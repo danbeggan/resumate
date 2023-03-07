@@ -1,4 +1,5 @@
 class EmploymentsController < ApplicationController
+  before_action :set_resume
   before_action :set_employment, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -16,7 +17,7 @@ class EmploymentsController < ApplicationController
     @employment = Employment.new(employment_params)
 
     if @employment.save
-      redirect_to employments_path, notice: "Employment was successfully created."
+      redirect_to build_resume_path(:employment_history), notice: "Employment was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +28,7 @@ class EmploymentsController < ApplicationController
 
   def update
     if @employment.update(employment_params)
-      redirect_to employments_path, notice: "Employment was successfully updated."
+      redirect_to build_resume_path(:employment_history), notice: "Employment was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,13 +36,16 @@ class EmploymentsController < ApplicationController
 
   def destroy
     @employment.destroy
-    redirect_to employments_path, notice: "Employment was successfully destroyed."
+    redirect_to build_resume_path(:employment_history), notice: "Employment was successfully destroyed."
   end
 
   private
   
-  def set_employment
+  def set_resume
     @resume = Resume.find(params[:resume_id])
+  end
+
+  def set_employment
     @employment = Employment.find(params[:id])
   end
 

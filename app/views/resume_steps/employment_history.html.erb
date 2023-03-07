@@ -2,5 +2,26 @@
   <div class="text-2xl font-semibold text-primary text-center mb-10">
     Step 2 - Employment History
   </div>
-  <div class="bg-secondary text-primary rounded text-center py-4 w-full cursor-pointer"><i class="fa-solid fa-plus"></i> Add Employment</div>
+  <%= turbo_frame_tag "employments" do %>
+    <% @resume.employments.each do |employment| %>
+      <%= turbo_frame_tag dom_id(employment) do %>
+        <div class="mb-5 rounded px-6 py-4 border-secondary border-2 text-primary flex justify-between">
+          <%= employment.job_title %>
+          <%= link_to edit_resume_employment_path(@resume, employment),
+                class: "inline-block text-primary", 
+                data: { turbo_frame: "employments"} do %>
+            <i class="fa-solid fa-edit"></i>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+    <%= link_to new_resume_employment_path(@resume),
+                class: "inline-block bg-secondary text-primary rounded text-center py-4 w-full cursor-pointer", 
+                data: { turbo_frame: "employments" } do %>
+      <i class="fa-solid fa-plus"></i> Add Employment
+    <% end %>
+    <div class="mt-10 flex justify-end">
+      <%= render Input::ButtonComponent.new(text: "Next", url: build_resume_path(:education)) %>
+    </div>
+  <% end %>
 </div>
